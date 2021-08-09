@@ -54,3 +54,25 @@ error-output{
     font-style: italic;
     color: red;
 }
+
+@media only screen and (max-width:320px){
+    h1{
+        font-size: 20px;
+        text-align: center;
+    }
+    label{
+        width: 30%;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width:240px){
+    
+    label{
+        width: 30%;
+        font-size: 11px;
+    }
+    input {
+        width: 11px;
+    }
+}
