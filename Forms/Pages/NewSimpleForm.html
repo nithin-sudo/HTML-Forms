@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,50 +17,49 @@
         <input type="text" name="text" id="text">
         <error-output class="text-error" for="text"></error-output>
     </div>
-    
+
     <div>
         <label for="pwd">Password input type: </label>
         <input type="password" name="pwd" id="pwd">
         <error-output class="text-error" for="pwd"></error-output>
     </div>
-    
+
     <div>
         <label for="email">Email input type: </label>
         <input type="email" name="email" id="email">
         <error-output class="text-error" for="email"></error-output>
     </div>
-   
+
     <div>
         <label for="url">Url input type: </label>
         <input type="url" name="url" id="url">
         <error-output class="text-error" for="url"></error-output>
     </div>
-   
+
     <div>
         <label for="number">Number input type: </label>
         <input type="number" name="number" id="number">
         <error-output class="text-error" for="number"></error-output>
     </div>
-   
+
     <div>
         <label for="tel">tel input type: </label>
         <input type="tel" name="tel" id="tel">
         <error-output class="text-error" for="tel"></error-output>
     </div>
-   
-   
+
     <div>
         <label for="search">search input type: </label>
         <input type="search" name="search" id="search">
         <error-output class="text-error" for="search"></error-output>
     </div>
-   
+
     <div class="nativeDateTimePicker">
         <label for="party"> Choose a date time </label>
         <input type="datetime-local" name="party" id="bday">
         <span class="validity"></span>
     </div>
-    
+
     <div>
         <label for="salary"> Choose salary </label>
         <input type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
@@ -70,14 +70,26 @@
 <script>
     const name = document.querySelector('#text')
     const textError = document.querySelector('.text-error')
-    text.addEventListener('input',function () {
+    text.addEventListener('input', function () {
         let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$")
         if (nameRegex.test(name.value)) {
             textError.textContent = ""
         }
-        else{
+        else {
             textError.textContent = "Name is Incorrect"
-        } 
+        }
+    });
+
+    const email = document.querySelector('#email')
+    const emailError = document.querySelector('.email-error')
+    email.addEventListener('input', function () {
+        let emailRegex = RegExp("^[0-9a-zA-Z]+([.,+,_,-]{1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2})?")
+        if (emailRegex.test(email.value)) {
+            emailError.textContent = ""
+        }
+        else {
+            emailError.textContent = "Email is Incorrect"
+        }
     });
 
     const salary = document.querySelector('#salary')
@@ -88,4 +100,5 @@
     });
 </script>
 </body>
+
 </html>
